@@ -7,10 +7,10 @@ Pillow==9.4.0
 tqdm==4.63.0
 pytoshop==1.2.1
 psd-tools==1.9.24
-gradio==3.16.2
 gradio_client==0.2.5
 onnx
-onnxruntime-gpu
+--extra-index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/onnxruntime-cuda-12/pypi/simple/
+onnxruntime-gpu>=1.18.1
 huggingface_hub
 segment_anything
 requests

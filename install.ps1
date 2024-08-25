@@ -1,3 +1,6 @@
+$Env:PIP_INDEX_URL = "https://pypi.mirrors.ustc.edu.cn/simple"
+$Env:HF_ENDPOINT = "https://hf-mirror.com"
+
 Set-Location $PSScriptRoot
 
 if (!(Test-Path -Path "venv")) {
@@ -6,11 +9,11 @@ if (!(Test-Path -Path "venv")) {
 }
 .\venv\Scripts\activate
 
+Write-Output "Installing torch+cuda"
+pip install torch==2.3.1+cu121 torchvision==0.18.1+cu121 -f https://mirror.sjtu.edu.cn/pytorch-wheels/torch_stable.html
+
 Write-Output "Installing deps..."
 pip install --upgrade -r requirements.txt
-
-Write-Output "Installing torch+cuda"
-pip install torch==2.0.1+cu118 torchvision==0.15.2+cu118 --extra-index-url https://download.pytorch.org/whl/cu118
 
 Write-Output "Searching segment model..."
 $url="https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth"
